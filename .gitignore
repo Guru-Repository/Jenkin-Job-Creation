@@ -16,6 +16,7 @@ target/
 # Test output directories
 test-output/
 surefire-reports/
+allure-results/
 
 # Selenium artifacts (screenshots, videos, etc.)
 screenshots/
