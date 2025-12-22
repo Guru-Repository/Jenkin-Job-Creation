@@ -1,0 +1,53 @@
+# Eclipse project files
+.project
+.classpath
+.settings/
+
+# IntelliJ project files
+.idea/
+*.iml
+
+# Build directories and files
+bin/
+target/
+*.class
+*.jar
+
+# Test output directories
+test-output/
+surefire-reports/
+
+# Selenium artifacts (screenshots, videos, etc.)
+screenshots/
+videos/
+
+# Logs
+*.log
+logs/
+
+# OS-specific files
+.DS_Store       # macOS
+Thumbs.db       # Windows
+desktop.ini     # Windows
+
+# Temp files
+*.tmp
+*.bak
+*~
+
+# Environment / secret files
+.env
+
+# Maven local repository
+.m2/
+
+# IDE-specific files (VSCode, NetBeans, etc.)
+.vscode/
+nbproject/
+
+# Ignore configuration and class files that are environment-dependent
+config.properties   # Example of configuration file to ignore if contains sensitive data
+*.war               # Ignore any war file artifacts
+
+# Jenkins-specific files
+jenkins-reports/
