@@ -14,10 +14,10 @@ public class DataDrivenAddEmpTest extends BaseTest {
 		dbp = lp.doLogin(prop.getProperty("usn"),prop.getProperty("psw"));
 	}
 	@Test(dataProvider = "multipleUserData")
-	public void getAddEmpPage(String fn,String mn,String ln) throws InterruptedException {
+	public void getAddEmpPage(String fn, String mn, String ln) throws InterruptedException {
 		 pim = (PIM_Page) dbp.selectMenu("PIM");
 		 pim.clickOnAddEmp();
-		 pim.addEmployeeDetails(fn, mn,ln);
+		 pim.addEmployeeDetails(fn,mn,ln);
 		 dbp.logoutApplication();
 	}
 	@DataProvider(name = "multipleUserData")
