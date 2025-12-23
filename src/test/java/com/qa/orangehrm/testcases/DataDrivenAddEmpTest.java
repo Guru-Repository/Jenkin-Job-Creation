@@ -17,7 +17,7 @@ public class DataDrivenAddEmpTest extends BaseTest {
 	public void getAddEmpPage(String fn,String mn,String ln) throws InterruptedException {
 		 pim = (PIM_Page) dbp.selectMenu("PIM");
 		 pim.clickOnAddEmp();
-		 pim.addEmployeeDetails(fn, mn,ln);
+		 pim.addEmployeeDetails(fn,mn,ln);
 		 dbp.logoutApplication();
 	}
 	@DataProvider(name = "multipleUserData")
