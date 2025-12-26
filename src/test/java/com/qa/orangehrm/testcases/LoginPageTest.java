@@ -75,4 +75,5 @@ public class LoginPageTest extends BaseTest{
 		ChainTestListener.log("doLoginApp is success");//chaintest report
 //		Assert.fail();
 	}
+//	remove code
 }
