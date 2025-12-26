@@ -77,7 +77,10 @@ public class LoginPageTest extends BaseTest{
 	}
 	
 	
-	
+	@Test
+	public void TestLoginApp() {
+		log.info("Test code added");
+	}
 	
 	
 
