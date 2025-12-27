@@ -3,6 +3,7 @@ package com.qa.orangehrm.diverfactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -14,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import com.qa.orangehrm.apperrormsg.ApplicationErrorMsg;
@@ -66,23 +68,26 @@ public class DriverManager {
 			if (envName == null) {
 				log.warn("the environment name is null :" + envName);
 				fis = new FileInputStream("./src/test/resources/ConfigurationData/ConfigData.qa.properties");
-			} 
-			
+			}
+
 			else {
 				switch (envName) {
-				case "qa": fis = new FileInputStream("./src/test/resources/ConfigurationData/ConfigData.qa.properties");
-						   break;
-				case "dev": fis = new FileInputStream("./src/test/resources/ConfigurationData/ConfigData.dev.properties");
-						   break;
-				case "staging": fis = new FileInputStream("./src/test/resources/ConfigurationData/ConfigData.staging.properties");
-					       break;
+				case "qa":
+					fis = new FileInputStream("./src/test/resources/ConfigurationData/ConfigData.qa.properties");
+					break;
+				case "dev":
+					fis = new FileInputStream("./src/test/resources/ConfigurationData/ConfigData.dev.properties");
+					break;
+				case "staging":
+					fis = new FileInputStream("./src/test/resources/ConfigurationData/ConfigData.staging.properties");
+					break;
 				default:
 					log.warn("The specified environment name is not valid");
 					throw new FrameworkExceptions("===Invalid Environment===");
 				}
 			}
 		}
-		
+
 		catch (Exception e) {
 			e.getStackTrace();
 		}
@@ -91,7 +96,7 @@ public class DriverManager {
 			prop.load(fis);
 			bopts = new BrowserOptions(prop);
 		}
-		
+
 		catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -104,7 +109,31 @@ public class DriverManager {
 				"From class [DriverManager] & method [captureScreenshotFile] The screenshot has initialized and returned");
 		return ts.getScreenshotAs(OutputType.FILE);
 	}
-	
+
+	public void init_remoteDriver(String browserName) {
+		try {
+			switch (browserName) {
+
+			case "chrome":
+				ltDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), bopts.getChromeOptions()));
+				break;
+			case "firefox":
+				ltDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), bopts.getFirefoxOptions()));
+				break;
+			case "edge":
+				ltDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), bopts.getEdgeOptions()));
+				break;
+			default:
+				log.error("Please supply the browser name for selenium grid");
+				break;
+
+			}
+		} catch (Exception e) {
+
+		}
+
+	}
+
 //	public Properties initProperty() {
 //	    try {
 //	        FileInputStream fis =
