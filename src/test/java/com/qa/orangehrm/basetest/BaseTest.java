@@ -14,7 +14,7 @@ import org.testng.annotations.Parameters;
 
 import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.qa.orangehrm.appconstants.I_ApplicationConstantValues;
-import com.qa.orangehrm.diverfactory.DriverManager;
+import com.qa.orangehrm.driverfactory.DriverManager;
 import com.qa.orangehrm.pagelayers.AdminPage;
 import com.qa.orangehrm.pagelayers.DashboardPage;
 import com.qa.orangehrm.pagelayers.LoginPage;

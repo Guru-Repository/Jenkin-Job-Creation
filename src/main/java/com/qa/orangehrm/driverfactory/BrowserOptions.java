@@ -1,4 +1,4 @@
-package com.qa.orangehrm.diverfactory;
+package com.qa.orangehrm.driverfactory;
 
 import java.util.Properties;
 

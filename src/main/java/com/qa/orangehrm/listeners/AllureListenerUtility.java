@@ -7,7 +7,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.qa.orangehrm.diverfactory.DriverManager;
+import com.qa.orangehrm.driverfactory.DriverManager;
 
 import io.qameta.allure.Attachment;
 
